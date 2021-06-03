@@ -1,0 +1,4 @@
+:8004 {
+    root * ./site
+    file_server
+}

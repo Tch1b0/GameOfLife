@@ -1,0 +1,9 @@
+:root {
+    font-family: sans-serif;
+    font-size: 110%;
+}
+
+div.game {
+    display: flex;
+    justify-content: center;
+}
