@@ -3,7 +3,7 @@
     font-size: 110%;
 }
 
-div.game {
+div.center {
     display: flex;
     justify-content: center;
 }
