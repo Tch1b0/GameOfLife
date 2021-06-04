@@ -4,8 +4,8 @@ var width = 1000;
 var density = 25;
 var c = document.getElementById("field");
 var ctx = c.getContext("2d");
-var changeDensity = document.getElementById("changeSize")
-var grid = []
+var changeDensity = document.getElementById("changeSize");
+var grid = [];
 
 // draw the grid
 function drawField(ctx, width, height, density) {
@@ -43,14 +43,14 @@ function drawField(ctx, width, height, density) {
     return locGrid;
 }
 
-function adapt() {
+function draw() {
     ctx.beginPath();
     for (let i=0; i < grid.length; i++) {
         for (let n=0; n < grid[i].length; n++) {
 
             // Get x and y as pixel coordinates in canvas
-            let x = n*density 
-            let y = i*density
+            let x = n*density;
+            let y = i*density;
             
             if (grid[i][n]) {
                 ctx.strokeStyle = "black";
@@ -68,11 +68,11 @@ function adapt() {
 
 // Turn a box black or white and change its state
 function checkBox(x, y) {
-    let pos = getGridPos(x, y)    
-    let state = grid[pos.y][pos.x]
+    let pos = getGridPos(x, y);
+    let state = grid[pos.y][pos.x];
 
-    grid[pos.y][pos.x] = !state
-    adapt();
+    grid[pos.y][pos.x] = !state;
+    draw();
 }
 
 // Clear a certain part or the field
@@ -109,25 +109,25 @@ function checkCells() {
     for (let i=0; i < grid.length; i++) {
         for (let n=0; n < grid[i].length; n++) {
             let neighbours = 0;
-            let state = grid[i][n]
+            let state = grid[i][n];
 
             // False = 0 and True = 1h
             // Add all neighbours to 'neighbours'
 
             // If 'n' is not at the left border
-            if (n != 0) neighbours += grid[i][n-1]
+            if (n != 0) neighbours += grid[i][n-1];
 
             // If n is not at the right border
-            if (n != grid[i].length - 1) neighbours += grid[i][n+1]
+            if (n != grid[i].length - 1) neighbours += grid[i][n+1];
 
             // If 'i' is not at the top
             if (i != 0) {
-                neighbours += grid[i-1][n+1] + grid[i-1][n-1] + grid[i-1][n]
+                neighbours += grid[i-1][n+1] + grid[i-1][n-1] + grid[i-1][n];
             }
 
             // If 'i' is not at the bottom
             if (i != grid.length - 1) {
-                neighbours += grid[i+1][n+1] + grid[i+1][n-1] + grid[i+1][n] 
+                neighbours += grid[i+1][n+1] + grid[i+1][n-1] + grid[i+1][n];
             }
             
             // If the Cell has less than 2 or more than 3 neighbours, it dies
@@ -144,7 +144,7 @@ function next() {
     let count = 1
     for (let i=0; i < count; i++) {
         checkCells();
-        adapt();
+        draw();
     }
 }
 
