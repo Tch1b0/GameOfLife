@@ -4,7 +4,6 @@ var width = 1000;
 var density = 25;
 var c = document.getElementById("field");
 var ctx = c.getContext("2d");
-var changeDensity = document.getElementById("changeSize");
 var grid = [];
 
 // draw the grid
