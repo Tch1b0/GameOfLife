@@ -1,4 +1,4 @@
-:8004 {
+:5004 {
     root * ./site
     file_server
 }
