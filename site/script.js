@@ -105,6 +105,7 @@ function mouseDown(evt) {
 }
 
 function checkCells() {
+    let newGrid = [...grid];
     for (let i=0; i < grid.length; i++) {
         for (let n=0; n < grid[i].length; n++) {
             let neighbours = 0;
@@ -131,12 +132,13 @@ function checkCells() {
             
             // If the Cell has less than 2 or more than 3 neighbours, it dies
             if ((neighbours < 2 || neighbours > 3) && state) {
-                grid[i][n] = false;
+                newGrid[i][n] = false;
             } else if (neighbours === 3 && !state) {
-                grid[i][n] = true;
+                newGrid[i][n] = true;
             }
         }
     }
+    grid = [...newGrid];
 }
 
 function next() {
