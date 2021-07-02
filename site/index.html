@@ -5,20 +5,26 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="./style.css">
-        <script defer src="./script.js"></script>
+        <script defer src="./interact.js"></script>
+        <script defer src="./game.js"></script>
         <title>Game of life</title>
     </head>
     <body>
         <h1 align="center"><u>Game of life</u></h1>
         <div class="center game">
-            <canvas id="field" width="1000" height="800" style="border:1px solid #000000;">
-            </canvas>
+        <canvas id="field" width="1000" height="800" style="border:1px solid #000000;">
+        </canvas>
         </div>
         <br>
         <div class="center options">
         </div>
         <div class="center">
-            <button class="btn" onclick="next()">Next</button>
+            <button onclick="clearAll()">Clear</button>
+            &ensp;&ensp;&ensp;&ensp;&ensp;
+            <p id="stepInfo"></p>
+            <input id="stepSlide" type="range" min="1" max="15" onchange="updateStepSlide()">
+            &ensp;&ensp;&ensp;&ensp;&ensp;
+            <button onclick="next(steps)">Next</button>
         </div>
     </body>
 </html>

@@ -42,7 +42,7 @@ function drawField(ctx, width, height, density) {
     return locGrid;
 }
 
-function draw() {
+async function draw() {
     ctx.beginPath();
     for (let i=0; i < grid.length; i++) {
         for (let n=0; n < grid[i].length; n++) {
@@ -79,6 +79,11 @@ function clearField(x, y, width, height) {
     ctx.clearRect(x, y, width, height);
 }
 
+async function clearAll() {
+    clearField(0, 0, width, height);
+    grid = drawField(ctx, width, height, density);
+}
+
 // Get a pixel position translated in the grid position
 function getGridPos(x, y) {
     return {
@@ -104,7 +109,7 @@ function mouseDown(evt) {
     checkBox(mp.x, mp.y, density, density);
 }
 
-function checkCells() {
+async function checkCells() {
     let newGrid = [...grid];
     for (let i=0; i < grid.length; i++) {
         for (let n=0; n < grid[i].length; n++) {
@@ -141,11 +146,10 @@ function checkCells() {
     grid = [...newGrid];
 }
 
-function next() {
-    let count = 1
+async function next(count) {
     for (let i=0; i < count; i++) {
-        checkCells();
-        draw();
+        await checkCells();
+        await draw();
     }
 }
 

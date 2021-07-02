@@ -1,6 +1,7 @@
 :root {
     font-family: sans-serif;
     font-size: 110%;
+    overflow: auto;
 }
 
 div.center {
@@ -8,6 +9,23 @@ div.center {
     justify-content: center;
 }
 
-button.btn {
-    font-size: 125%;
+button {
+    font-size: 115%;
+    height: 50%;
+}
+
+div.sizeAdjust {
+    text-align: center;
+    position: relative;
+    margin-bottom: 3%;
+}
+
+#size {
+    right: 45%;
+    position: absolute;
+}
+
+p.stepInfo {
+    position: absolute;
+    margin-top: 1%;
 }
